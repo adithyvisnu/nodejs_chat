@@ -1,9 +1,16 @@
-var http = require("http");
+var express = require("express");
+var app = express();
 
-http.createServer (function (req,res) {
+app.get('/', function (req,res) {
 	// body...
-   res.writeHead(200, {'Content-Type': 'text/plain'});
-   res.end('Hello World\n');
-}).listen(8080);
+	res.end("Home Page");
+});
 
-console.log("Server runs at :8080");
+var server = app.listen(8080, function () {
+	// body...
+	var host = server.address().address
+	var port = server.address().port
+
+	console.log("Server runs at : %s:%s",host,port);
+
+})
