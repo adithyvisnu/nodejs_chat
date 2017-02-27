@@ -1,10 +1,14 @@
 var express = require("express");
 var app = express();
-var bodyParser = require('body-parser'); //get post json raw etc
+
+// File system dependencies read, write, etc
+var fs = require("fs");
+
+// Get post, json, raw, etc parameters
+var bodyParser = require('body-parser');
 
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
-
 
 app.get('/', function (req, res) {
    res.sendFile( __dirname + "/" + "index.htm" );
